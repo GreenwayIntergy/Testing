@@ -14,14 +14,14 @@ test.beforeAll(async ({ browser }) => {
   expect(LoginResult).toBeTruthy();
 
   //goto the main application page
-  await page.getByLabel('Go to page 2').click();
+  //await page.getByLabel('Go to page 2').click();
 
   //find the General Disclosure And open
   await page.getByRole('button', { name: 'View', exact: true }).nth(1).click();
   await page.getByRole('button', { name: 'General Disclosure 30 Subsections' }).click();
 });
 
-test('Organization Details', async () => {
+test.only('Organization Details', async () => {
   
   await page.getByRole('button', { name: 'Oganization Details' }).click();
   await page.getByRole('button', { name: '2.1.a.1 Legal name' }).click();
@@ -73,7 +73,7 @@ test('Organization Details', async () => {
   await page.getByText('close').click();
 });
 
-test.only('Sustainability Reporting', async () => {
+test('Sustainability Reporting', async () => {
   await page.getByRole('button', { name: 'Sustainability Reporting' }).click();
   await page.getByRole('button', { name: '2.2.a.1 Sustainability reporting' }).click();
   await page.waitForLoadState('networkidle');
