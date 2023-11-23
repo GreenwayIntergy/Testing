@@ -8,7 +8,7 @@ class LoginPage {
 
     async goTo()
     {
-        await this.page.goto('http://localhost:4200/');
+        await this.page.goto('https://eledger.ai/');
     }
 
     async validLogin(username, password)

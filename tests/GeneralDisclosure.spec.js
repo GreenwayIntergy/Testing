@@ -18,7 +18,7 @@ test.beforeAll(async ({ browser }) => {
 
   //find the General Disclosure And open
   await page.getByRole('button', { name: 'View', exact: true }).nth(1).click();
-  await page.getByRole('button', { name: 'General Disclosure 30 Subsections' }).click();
+  await page.getByRole('button', { name: 'General Disclosure' }).click();
 });
 
 test.only('Organization Details', async () => {
