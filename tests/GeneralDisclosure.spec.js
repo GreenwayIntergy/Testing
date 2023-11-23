@@ -1,5 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const {LoginPage} = require('../PageObject/LoginPageObj');
+const { Console } = require('console');
 let context;
 let page;
 
@@ -12,19 +13,23 @@ test.beforeAll(async ({ browser }) => {
   await loginPage.goTo();
   const LoginResult = await loginPage.validLogin('prajwal.verma@jktech.com', 'MicroB@01020');
   expect(LoginResult).toBeTruthy();
+  console.log("Login Successfully");
 
   //goto the main application page
   //await page.getByLabel('Go to page 2').click();
 
   //find the General Disclosure And open
   await page.getByRole('button', { name: 'View', exact: true }).nth(1).click();
+  console.log("Clicking the View Button for GRI");
   await page.getByRole('button', { name: 'General Disclosure' }).click();
+  console.log("Open the General Dsiclosure page");
 });
 
 test.only('Organization Details', async () => {
-  
+  console.log("Started the Organization Detail Testing");
   await page.getByRole('button', { name: 'Oganization Details' }).click();
   await page.getByRole('button', { name: '2.1.a.1 Legal name' }).click();
+  console.log("Start Filling the Legal Name details");
   await page.waitForLoadState('networkidle');
 
   //Filling the organization details
